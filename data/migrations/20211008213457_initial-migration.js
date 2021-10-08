@@ -17,6 +17,7 @@ exports.up = async function (knex) {
       table.string("task_notes", 200);
       table.boolean("task_completed", 0);
       table.integer("project_id").notNullable();
+      table.references("project_id");
     });
 };
 

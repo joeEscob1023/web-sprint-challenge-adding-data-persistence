@@ -10,6 +10,12 @@ function getResource() {
   //Looking at the GP trying to connect the dots
 }
 
+async function createResource(resource) {
+  const [resource_id] = await db("resources").insert(resource);
+  return getResources().where({ resource_id }).first();
+}
+
 module.exports = {
   getResources,
+  createResource,
 };
